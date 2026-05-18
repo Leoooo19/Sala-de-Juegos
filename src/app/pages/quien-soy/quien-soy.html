@@ -1,1 +1,41 @@
-<p>quien-soy works!</p>
+<div class="container">
+
+    <div class="card p-4 shadow">
+
+    <h1 class="mb-4">Quién Soy</h1>
+
+    @if(usuario){
+
+        <img
+        [src]="usuario.avatar_url"
+        class="img-fluid rounded-circle mb-3"
+        width="200"
+        >
+
+        <h2>{{ usuario.name }}</h2>
+
+        <p>
+        Usuario: {{ usuario.login }}
+        </p>
+
+        <p>
+        Seguidores: {{ usuario.followers }}
+        </p>
+
+        <p>
+        Repos públicos: {{ usuario.public_repos }}
+        </p>
+
+    }
+
+    <hr>
+
+    <h3>Mi juego propio</h3>
+
+    <p>
+        Acá después explicás el juego que vas a inventar.
+    </p>
+
+    </div>
+
+</div>
