@@ -1,0 +1,19 @@
+.hero {
+    min-height: calc(100vh - 56px);
+    background: linear-gradient(to right, #111, #222);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.hero h1 {
+    font-size: 72px;
+    font-weight: 800;
+}
+
+.hero p {
+    font-size: 20px;
+}

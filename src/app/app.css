@@ -1,0 +1,8 @@
+.nav-link{
+    transition: 0.3s;
+}
+
+.nav-link:hover{
+    color: red !important;
+    transform: scale(1.05);
+}

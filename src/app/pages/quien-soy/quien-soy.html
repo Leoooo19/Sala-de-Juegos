@@ -6,35 +6,46 @@
 
     @if(usuario){
 
-        <img
-        [src]="usuario.avatar_url"
-        class="img-fluid rounded-circle mb-3"
-        width="200"
-        >
+    <img
+    [src]="usuario.avatar_url"
+    class="img-fluid rounded-circle mb-3"
+    width="200"
+    >
 
-        <h2>{{ usuario.name }}</h2>
+    <h2>{{ usuario.name || usuario.login }}</h2>
 
-        <p>
-        Usuario: {{ usuario.login }}
-        </p>
-
-        <p>
-        Seguidores: {{ usuario.followers }}
-        </p>
-
-        <p>
-        Repos públicos: {{ usuario.public_repos }}
-        </p>
-
-    }
+    <p>Usuario: {{ usuario.login }}</p>
+    <p>Seguidores: {{ usuario.followers }}</p>
+    <p>Repos públicos: {{ usuario.public_repos }}</p>} 
+    @else {
+    <p>Cargando datos de GitHub...</p>}
 
     <hr>
 
-    <h3>Mi juego propio</h3>
+        <h3>Mi juego de cartas</h3>
 
-    <p>
-        Acá después explicás el juego que vas a inventar.
-    </p>
+        <p>
+        El juego se trata de una variante de “Mayor o Menor” utilizando cartas.
+        La elección de este juego se debe a que combina rapidez, lógica y azar,
+        permitiendo una jugabilidad simple e intuitiva para cualquier usuario.
+        </p>
+
+        <p>
+        El funcionamiento es el siguiente:
+        el sistema mostrará una carta y el jugador va a tener que adivinar si la siguiente
+        carta tendra un valor mayor o menor.
+        </p>
+
+        <p>
+        Cada respuesta correcta otorga puntos y permitira continuar acumulando 
+        puntaje. En caso de fallar, el jugador perdera vidas o finalizara la partida,
+        dependiendo del modo de juego implementado.
+        </p>
+
+        <p>
+        El objetivo sera obtener la mayor cantidad de puntos posibles y registrar
+        los resultados en un ranking general de jugadores.
+        </p>
 
     </div>
 
