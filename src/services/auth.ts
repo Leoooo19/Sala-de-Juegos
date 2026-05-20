@@ -29,4 +29,7 @@ export class AuthService {
   obtenerUsuario() {
     return this.supabaseService.getClient().auth.getUser();
   }
+  obtenerSesion() {
+  return this.supabaseService.getClient().auth.getSession();
+  }
 }
