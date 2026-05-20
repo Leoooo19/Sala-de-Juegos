@@ -4,9 +4,17 @@
 
     <p>Plataforma de juegos desarrollada con Angular.</p>
 
+    @if(!usuario){
     <div class="d-flex justify-content-center gap-3">
-    <a routerLink="/login" class="btn btn-danger btn-lg">Iniciar Sesión</a>
-    <a routerLink="/registro" class="btn btn-outline-light btn-lg">Registrarse</a>
+        <a routerLink="/login" class="btn btn-danger btn-lg">Iniciar Sesión</a>
+        <a routerLink="/registro" class="btn btn-outline-light btn-lg">Registrarse</a>
     </div>
+    } @else {
+    <h3>Usuario logueado: {{ usuario.email }}</h3>
+
+    <button class="btn btn-danger btn-lg" (click)="cerrarSesion()">
+        Cerrar sesión
+    </button>
+    }
 
 </div>
