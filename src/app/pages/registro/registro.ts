@@ -27,15 +27,19 @@ export class Registro {
     const { error } = await this.authService.registrar(this.email, this.password);
 
     if (error) {
-      this.mensaje = 'El usuario ya se encuentra registrado o los datos son inválidos';
-      return;
-    }
-    await this.authService.guardarDatosUsuario({
-    email: this.email,
-    nombre: this.nombre,
-    apellido: this.apellido,
-    edad: this.edad
-    });
-    this.router.navigate(['/']);
+    this.mensaje = 'El usuario ya se encuentra registrado o los datos son inválidos';
+    return;
+  }
+
+    const respuesta = await this.authService.guardarDatosUsuario({
+  email: this.email,
+  nombre: this.nombre,
+  apellido: this.apellido,
+  edad: this.edad
+  });
+
+console.log('INSERT USUARIO:', respuesta);
+
+this.router.navigate(['/']);
   }
 }
