@@ -34,7 +34,8 @@ export class AuthService {
   return this.supabaseService.getClient().auth.getSession();
   }
   guardarDatosUsuario(usuario: any) {
-  return this.supabaseService.getClient()
+  return this.supabaseService
+    .getClient()
     .from('usuarios')
     .insert(usuario);
 }
