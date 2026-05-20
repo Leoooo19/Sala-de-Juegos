@@ -15,8 +15,8 @@ export class Home implements OnInit {
   constructor(private authService: AuthService) {}
 
   async ngOnInit() {
-    const { data } = await this.authService.obtenerUsuario();
-    this.usuario = data.user;
+  const { data } = await this.authService.obtenerSesion();
+  this.usuario = data.session?.user ?? null;
   }
 
   async cerrarSesion() {
