@@ -14,13 +14,17 @@ export class Home implements OnInit {
 
   constructor(private authService: AuthService) {}
 
-  async ngOnInit() {
-  const { data } = await this.authService.obtenerSesion();
-  this.usuario = data.session?.user ?? null;
+  ngOnInit() {
+  const usuarioGuardado = localStorage.getItem('usuario');
+
+  if (usuarioGuardado) {
+    this.usuario = JSON.parse(usuarioGuardado);
+  }
   }
 
   async cerrarSesion() {
-    await this.authService.logout();
-    this.usuario = null;
+  await this.authService.logout();
+  localStorage.removeItem('usuario');
+  this.usuario = null;
   }
 }

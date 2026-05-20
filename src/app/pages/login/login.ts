@@ -21,13 +21,17 @@ export class Login {
   ) {}
 
   async ingresar() {
-    const { error } = await this.authService.login(this.email, this.password);
+  const { data, error } = await this.authService.login(this.email, this.password);
 
-    if (error) {
-      this.mensaje = 'Correo o contraseña incorrectos';
-      return;
-    }
+  console.log('LOGIN:', data, error);
 
-    this.router.navigate(['/']);
+  if (error) {
+    this.mensaje = 'Correo o contraseña incorrectos';
+    return;
+  }
+
+  localStorage.setItem('usuario', JSON.stringify(data.user));
+
+  this.router.navigate(['/']);
   }
 }
