@@ -21,17 +21,22 @@ export class Login {
   ) {}
 
   async ingresar() {
-  const { data, error } = await this.authService.login(this.email, this.password);
+    const { data, error } = await this.authService.login(this.email, this.password);
 
-  console.log('LOGIN:', data, error);
+    console.log('LOGIN:', data, error);
 
-  if (error) {
-    this.mensaje = 'Correo o contraseña incorrectos';
-    return;
+    if (error) {
+      this.mensaje = 'Correo o contraseña incorrectos';
+      return;
+    }
+
+    localStorage.setItem('usuario', JSON.stringify(data.user));
+
+    this.router.navigate(['/']);
   }
 
-  localStorage.setItem('usuario', JSON.stringify(data.user));
-
-  this.router.navigate(['/']);
-  }
+  loginRapido(email: string, password: string) {
+    this.email = email;
+    this.password = password;
+}
 }

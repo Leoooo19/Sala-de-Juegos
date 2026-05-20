@@ -16,7 +16,23 @@
     <button class="btn btn-dark w-100" (click)="ingresar()">
         Ingresar
     </button>
+    <hr>
 
+    <p class="text-center">Ingreso rápido</p>
+
+    <div class="d-grid gap-2">
+    <button class="btn btn-outline-primary" (click)="loginRapido('pepe@gmail.com', 'pepe123')">
+    Usuario 1
+    </button>
+
+    <button class="btn btn-outline-success" (click)="loginRapido('prueba2@gmail.com', '123456')">
+    Usuario 2
+    </button>
+
+    <button class="btn btn-outline-warning" (click)="loginRapido('prueba3@gmail.com', '123456')">
+    Usuario 3
+    </button>
+    </div>
     @if(mensaje){
         <p class="text-danger text-center mt-3">{{ mensaje }}</p>
     }

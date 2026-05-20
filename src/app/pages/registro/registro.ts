@@ -30,7 +30,12 @@ export class Registro {
       this.mensaje = 'El usuario ya se encuentra registrado o los datos son inválidos';
       return;
     }
-
+    await this.authService.guardarDatosUsuario({
+    email: this.email,
+    nombre: this.nombre,
+    apellido: this.apellido,
+    edad: this.edad
+    });
     this.router.navigate(['/']);
   }
 }
