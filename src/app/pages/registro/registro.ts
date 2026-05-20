@@ -24,7 +24,7 @@ export class Registro {
   ) {}
 
   async registrar() {
-    const { error } = await this.authService.registrar(this.email, this.password);
+    const { data,error } = await this.authService.registrar(this.email, this.password);
 
     if (error) {
     this.mensaje = 'El usuario ya se encuentra registrado o los datos son inválidos';
@@ -32,6 +32,7 @@ export class Registro {
   }
 
     const respuesta = await this.authService.guardarDatosUsuario({
+  id: data.user?.id,
   email: this.email,
   nombre: this.nombre,
   apellido: this.apellido,
