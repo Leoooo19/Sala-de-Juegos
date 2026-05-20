@@ -11,7 +11,7 @@ export class SupabaseService {
   constructor() {
     this.supabase = createClient(
       'https://qamsjihpyunbspoxkzjk.supabase.co',
-      'PEGÁ_ACÁ_TU_PUBLISHABLE_KEY'
+      'sb_publishable_n2Eie22VCLWo0EtklBrACg__JYOHEEg'
     );
   }
 
