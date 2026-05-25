@@ -51,4 +51,19 @@ guardarResultadoAhorcado(resultado: any) {
     .from('resultados_ahorcado')
     .insert(resultado);
 }
+guardarMensajeChat(mensaje: any) {
+  return this.supabaseService
+    .getClient()
+    .from('mensajes_chat')
+    .insert(mensaje);
+}
+
+obtenerMensajesChat() {
+  return this.supabaseService
+    .getClient()
+    .from('mensajes_chat')
+    .select('*')
+    .order('fecha', { ascending: true });
+}
+
 }

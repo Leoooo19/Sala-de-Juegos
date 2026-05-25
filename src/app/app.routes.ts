@@ -6,6 +6,7 @@ import { Registro } from './pages/registro/registro';
 import { QuienSoy } from './pages/quien-soy/quien-soy';
 import { MayorMenor } from './pages/mayor-menor/mayor-menor';
 import { Ahorcado } from './pages/ahorcado/ahorcado';
+import { Chat } from './pages/chat/chat';
 
 export const routes: Routes = [
     {
@@ -27,5 +28,9 @@ export const routes: Routes = [
     {
     path: 'ahorcado',
     component: Ahorcado
-    }
+    },
+    {
+    path: 'chat',
+    component: Chat
+    },
 ];
