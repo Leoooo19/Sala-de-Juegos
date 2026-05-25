@@ -23,24 +23,42 @@ export class Registro {
     private router: Router
   ) {}
 
-  async registrar() {
-    const { data,error } = await this.authService.registrar(this.email, this.password);
+async registrar() {
 
-    if (error) {
-    this.mensaje = 'El usuario ya se encuentra registrado o los datos son inválidos';
+  if (!this.nombre || !this.apellido || !this.edad || !this.email || !this.password) {
+    this.mensaje = 'Todos los campos son obligatorios';
     return;
   }
 
-    const respuesta = await this.authService.guardarDatosUsuario({
-  id: data.user?.id,
-  email: this.email,
-  nombre: this.nombre,
-  apellido: this.apellido,
-  edad: this.edad
+  if (!this.email.includes('@')) {
+    this.mensaje = 'El email debe tener un formato valido';
+    return;
+  }
+
+  if (this.password.length < 6) {
+    this.mensaje = 'La contraseña debe tener al menos 6 caracteres';
+    return;
+  }
+
+  const { data, error } = await this.authService.registrar(this.email, this.password);
+
+  if (error) {
+    if (error.message.includes('already')) {
+      this.mensaje = 'El usuario ya se encuentra registrado';
+    } else {
+      this.mensaje = 'No se pudo registrar el usuario';
+    }
+    return;
+  }
+
+  await this.authService.guardarDatosUsuario({
+    id: data.user?.id,
+    email: this.email,
+    nombre: this.nombre,
+    apellido: this.apellido,
+    edad: this.edad
   });
 
-console.log('INSERT USUARIO:', respuesta);
-
-this.router.navigate(['/']);
-  }
+  this.router.navigate(['/']);
+}
 }

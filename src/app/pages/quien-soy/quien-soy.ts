@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { QuienSoyService } from '../../../services/quien-soy';
 
 @Component({
   selector: 'app-quien-soy',
@@ -12,18 +12,18 @@ export class QuienSoy implements OnInit {
 
   usuario: any;
 
-  constructor(private http: HttpClient) {}
+  constructor(private quienSoyService: QuienSoyService) {}
 
-  ngOnInit(): void {
+ngOnInit(): void {
 
-    this.http.get('https://api.github.com/users/Leoooo19')
-      .subscribe(data => {
+  this.quienSoyService.obtenerUsuarioGitHub()
+    .subscribe(data => {
 
-        this.usuario = data;
-        console.log(data);
+      this.usuario = data;
+      console.log(data);
 
-      });
+    });
 
-  }
+}
 
 }
