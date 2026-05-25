@@ -55,7 +55,7 @@ export class MayorMenor {
       this.juegoTerminado = true;
       this.authService.guardarResultadoMayorMenor({
       id: crypto.randomUUID(),
-      usuario: localStorage.getItem('usuario'),
+      usuario: JSON.parse(localStorage.getItem('usuario') || '{}').email,
       correctas : this.puntos,
       incorrectas: this.incorrectas,
       cartas_jugadas: this.cartasJugadas,
