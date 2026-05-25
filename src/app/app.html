@@ -8,12 +8,12 @@
     <a class="nav-link" routerLink="/quien-soy">Quién Soy</a>
     <a class="nav-link" routerLink="/mayor-menor">Mayor o Menor</a>
   </div>
+
+  <span class="navbar-text ms-auto text-white" *ngIf="usuario">
+  Logueado: {{ usuario.email }}
+  </span>
 </nav>
 
 <main class="container mt-4">
   <router-outlet />
 </main>
-
-<span class="navbar-text ms-auto text-white" *ngIf="usuario">
-  Logueado: {{ usuario.email }}
-</span>
