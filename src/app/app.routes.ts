@@ -5,6 +5,7 @@ import { Login } from './pages/login/login';
 import { Registro } from './pages/registro/registro';
 import { QuienSoy } from './pages/quien-soy/quien-soy';
 import { MayorMenor } from './pages/mayor-menor/mayor-menor';
+import { Ahorcado } from './pages/ahorcado/ahorcado';
 
 export const routes: Routes = [
     {
@@ -22,5 +23,9 @@ export const routes: Routes = [
     {
     path: 'mayor-menor',
     component: MayorMenor
+    },
+    {
+    path: 'ahorcado',
+    component: Ahorcado
     }
 ];

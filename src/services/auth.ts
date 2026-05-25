@@ -45,4 +45,10 @@ guardarResultadoMayorMenor(resultado: any) {
     .from('resultados_mayor_menor')
     .insert(resultado);
 }
+guardarResultadoAhorcado(resultado: any) {
+  return this.supabaseService
+    .getClient()
+    .from('resultados_ahorcado')
+    .insert(resultado);
+}
 }

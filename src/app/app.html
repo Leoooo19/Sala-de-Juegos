@@ -7,10 +7,11 @@
     <a class="nav-link" routerLink="/registro">Registro</a>
     <a class="nav-link" routerLink="/quien-soy">Quién Soy</a>
     <a class="nav-link" routerLink="/mayor-menor">Mayor o Menor</a>
+    <a class="nav-link" routerLink="/ahorcado">Ahorcado</a>
   </div>
 
   <span class="navbar-text ms-auto text-white" *ngIf="usuario">
-  Logueado: {{ usuario.email }}
+  Usuario logueado{{ usuario.email }}
   </span>
 </nav>
 

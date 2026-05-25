@@ -1,0 +1,46 @@
+<section class="juego-ahorcado">
+
+    <div class="panel-lateral">
+    <h2>Ahorcado</h2>
+
+    <div class="estadisticas">
+        <p>Intentos: {{ intentos }}</p>
+        <p>Letras usadas: {{ letrasAdivinadas.length }}</p>
+    </div>
+
+    <button class="reiniciar" (click)="iniciarJuego()">
+        Reiniciar
+    </button>
+    </div>
+
+    <div class="mesa-ahorcado">
+
+    <h1>Juego Ahorcado</h1>
+
+    <div class="palabra">
+        {{ mostrarPalabra() }}
+    </div>
+
+    <div class="abecedario">
+        <button
+        *ngFor="let letra of abecedario"
+        (click)="elegirLetra(letra)"
+        [disabled]="letrasAdivinadas.includes(letra) || mensaje">
+        {{ letra }}
+        </button>
+    </div>
+
+    <h2
+    class="mensaje"
+    [ngClass]="{
+    'ganaste': mensaje === 'Ganaste',
+    'perdiste': mensaje === 'Perdiste'
+    }">
+
+    {{ mensaje }}
+
+</h2>
+
+    </div>
+
+</section>
