@@ -68,7 +68,10 @@ constructor(private authService: AuthService) {
     gano: true,
 
     fecha: new Date()
-
+    
+      }).then((respuesta: any) => {
+  console.log('AHORCADO:', respuesta);
+  
   });
 
 }
@@ -90,6 +93,10 @@ constructor(private authService: AuthService) {
     gano: false,
 
     fecha: new Date()
+    
+      }).then((respuesta: any) => {
+  console.log('AHORCADO:', respuesta);
+  
   });
 }
 }
