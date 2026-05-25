@@ -47,6 +47,8 @@ export class Login {
   }
     localStorage.setItem('usuario', JSON.stringify(data.user));
 
+    window.location.reload();
+
     this.router.navigate(['/']);
   }
 
