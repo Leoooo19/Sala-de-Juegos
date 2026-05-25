@@ -57,6 +57,8 @@ constructor(private authService: AuthService) {
 
     this.authService.guardarResultadoAhorcado({
 
+    id: crypto.randomUUID(),
+
     usuario: JSON.parse(localStorage.getItem('usuario') || '{}').email,
 
     intentos_restantes: this.intentos,
@@ -76,6 +78,8 @@ constructor(private authService: AuthService) {
     this.mensaje = 'Perdiste';
 
     this.authService.guardarResultadoAhorcado({
+
+    id: crypto.randomUUID(),
 
     usuario: JSON.parse(localStorage.getItem('usuario') || '{}').email,
 
