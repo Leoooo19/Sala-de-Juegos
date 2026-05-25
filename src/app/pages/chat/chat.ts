@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth';
-import { OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-chat',
@@ -18,8 +17,11 @@ export class Chat implements OnInit {
   usuario =
     JSON.parse(localStorage.getItem('usuario') || '{}').email;
 
-  constructor(private authService: AuthService) {
-    this.cargarMensajes();
+  constructor(
+  private authService: AuthService,
+  private cd: ChangeDetectorRef
+  ) {
+  this.cargarMensajes();
   }
 ngOnInit() {
   this.authService.supabaseService.getClient()
@@ -31,8 +33,10 @@ ngOnInit() {
         schema: 'public',
         table: 'mensajes_chat'
       },
-      () => {
-        this.cargarMensajes();
+      (payload) => {
+      console.log('Nuevo mensaje realtime:', payload);
+      this.cargarMensajes();
+      this.cd.detectChanges();
       }
     )
     .subscribe();
