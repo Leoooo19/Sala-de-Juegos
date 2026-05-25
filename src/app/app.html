@@ -14,6 +14,6 @@
   <router-outlet />
 </main>
 
-<span class="navbar-text ms-auto text-white">
-  {{ usuario?.email }}
+<span class="navbar-text ms-auto text-white" *ngIf="usuario">
+  Logueado: {{ usuario.email }}
 </span>

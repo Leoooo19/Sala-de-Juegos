@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -7,6 +7,14 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit {
+  usuario: any = null;
 
+  ngOnInit() {
+    const usuarioGuardado = localStorage.getItem('usuario');
+
+    if (usuarioGuardado) {
+      this.usuario = JSON.parse(usuarioGuardado);
+    }
+  }
 }

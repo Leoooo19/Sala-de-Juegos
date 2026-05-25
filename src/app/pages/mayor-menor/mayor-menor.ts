@@ -54,14 +54,15 @@ export class MayorMenor {
       this.mensaje = 'Incorrecto, terminó la partida';
       this.juegoTerminado = true;
       this.authService.guardarResultadoMayorMenor({
+      id: crypto.randomUUID(),
       usuario: localStorage.getItem('usuario'),
-      correctas: this.puntos,
+      correctas : this.puntos,
       incorrectas: this.incorrectas,
       cartas_jugadas: this.cartasJugadas,
       fecha: new Date()
-      }).then(respuesta => {
-      console.log('RESULTADO MAYOR MENOR:', respuesta);
-      });
+    }).then(respuesta => {
+    console.log('RESULTADO MAYOR MENOR:', respuesta);
+    });
     }
   }
 
