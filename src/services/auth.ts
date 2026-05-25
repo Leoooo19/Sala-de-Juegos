@@ -39,4 +39,10 @@ export class AuthService {
     .from('usuarios')
     .insert(usuario);
 }
+guardarResultadoMayorMenor(resultado: any) {
+  return this.supabaseService
+    .getClient()
+    .from('resultados_mayor_menor')
+    .insert(resultado);
+}
 }

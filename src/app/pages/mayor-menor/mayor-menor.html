@@ -1,0 +1,66 @@
+<section class="juego-mayor-menor">
+
+    <div class="panel-lateral">
+    <h2>Mayor o Menor</h2>
+
+    <button class="btn-opcion mayor" (click)="elegir('mayor')" [disabled]="juegoTerminado">
+        ↑ Mayor
+    </button>
+
+    <button class="btn-opcion menor" (click)="elegir('menor')" [disabled]="juegoTerminado">
+        ↓ Menor
+    </button>
+
+    <div class="estadisticas">
+        <p>Correctas: {{ puntos }}</p>
+        <p>Incorrectas: {{ incorrectas }}</p>
+        <p>Racha: {{ racha }}</p>
+        <p>Cartas jugadas: {{ cartasJugadas }}</p>
+    </div>
+
+    <button class="reiniciar" *ngIf="juegoTerminado" (click)="reiniciar()">
+        Jugar otra vez
+    </button>
+    </div>
+
+    <div class="mesa">
+
+    <div class="zona-carta">
+        <h3>Tu carta</h3>
+        <div class="carta">
+        <span>{{ cartaActual.numero }}</span>
+        <span>{{ cartaActual.palo }}</span>
+        </div>
+    </div>
+
+    <div class="flecha">→</div>
+
+    <div class="zona-carta">
+        <h3>Próxima carta</h3>
+
+      <div class="carta reverso" *ngIf="!cartaSiguiente">
+        ?
+        </div>
+
+      <div class="carta" *ngIf="cartaSiguiente">
+        <span>{{ cartaSiguiente.numero }}</span>
+        <span>{{ cartaSiguiente.palo }}</span>
+        </div>
+    </div>
+
+    <div class="zona-carta">
+        <h3>Baraja</h3>
+        <div class="baraja">
+        <div class="carta-reverso"></div>
+        <div class="carta-reverso segunda"></div>
+        <div class="carta-reverso tercera"></div>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="mensaje">
+    {{ mensaje }}
+    </div>
+
+</section>

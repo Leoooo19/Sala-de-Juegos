@@ -1,0 +1,119 @@
+.juego-mayor-menor {
+    min-height: 85vh;
+    background: radial-gradient(circle, #1d1d1d, #050505);
+    color: white;
+    padding: 30px;
+}
+
+.panel-lateral {
+    width: 260px;
+    float: left;
+    background: #151515;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+}
+
+.btn-opcion {
+    width: 100%;
+    margin: 10px 0;
+    padding: 18px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.mayor {
+    background: #168f3a;
+}
+
+.menor {
+    background: #0d6efd;
+}
+
+.estadisticas {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.mesa {
+    margin-left: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 45px;
+    flex-wrap: wrap;
+}
+
+.zona-carta {
+    text-align: center;
+}
+
+.carta {
+    width: 150px;
+    height: 210px;
+    background: white;
+    color: black;
+    border-radius: 14px;
+    border: 3px solid #ddd;
+    font-size: 55px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px #000;
+}
+
+.reverso,
+.carta-reverso {
+    background: linear-gradient(135deg, #1c3f8f, #0b1b45);
+    color: white;
+}
+
+.flecha {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.baraja {
+    position: relative;
+    width: 170px;
+    height: 220px;
+}
+
+.carta-reverso {
+    position: absolute;
+    width: 150px;
+    height: 210px;
+    border-radius: 14px;
+    border: 3px solid white;
+}
+
+.segunda {
+    left: 8px;
+    top: 6px;
+}
+
+.tercera {
+    left: 16px;
+    top: 12px;
+}
+
+.mensaje {
+    clear: both;
+    margin-top: 35px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.reiniciar {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: none;
+}

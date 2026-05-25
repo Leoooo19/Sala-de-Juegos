@@ -4,6 +4,7 @@ import { Home } from './pages/home/home';
 import { Login } from './pages/login/login';
 import { Registro } from './pages/registro/registro';
 import { QuienSoy } from './pages/quien-soy/quien-soy';
+import { MayorMenor } from './pages/mayor-menor/mayor-menor';
 
 export const routes: Routes = [
     {
@@ -17,5 +18,9 @@ export const routes: Routes = [
     component: Registro},
     {
     path: 'quien-soy',
-    component: QuienSoy}
+    component: QuienSoy},
+    {
+    path: 'mayor-menor',
+    component: MayorMenor
+    }
 ];
