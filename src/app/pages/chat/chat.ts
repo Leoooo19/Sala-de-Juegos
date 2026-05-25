@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth';
+import { OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-chat',
@@ -9,7 +10,7 @@ import { AuthService } from '../../../services/auth';
   templateUrl: './chat.html',
   styleUrl: './chat.css'
 })
-export class Chat {
+export class Chat implements OnInit {
 
   mensajes: any[] = [];
   nuevoMensaje = '';
@@ -20,6 +21,22 @@ export class Chat {
   constructor(private authService: AuthService) {
     this.cargarMensajes();
   }
+ngOnInit() {
+  this.authService.supabaseService.getClient()
+    .channel('chat-global')
+    .on(
+      'postgres_changes',
+      {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'mensajes_chat'
+      },
+      () => {
+        this.cargarMensajes();
+      }
+    )
+    .subscribe();
+}
 
   async cargarMensajes() {
 

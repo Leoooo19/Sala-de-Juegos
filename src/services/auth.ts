@@ -6,7 +6,7 @@ import { SupabaseService } from './supabase';
 })
 export class AuthService {
 
-  constructor(private supabaseService: SupabaseService) {}
+  constructor(public supabaseService: SupabaseService) {}
 
   registrar(email: string, password: string) {
     return this.supabaseService.getClient().auth.signUp({
