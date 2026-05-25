@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../../services/auth';
 
 @Component({
   selector: 'app-mayor-menor',
@@ -8,6 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './mayor-menor.css'
 })
 export class MayorMenor {
+
+  constructor(private authService: AuthService) {}
 
   palos = ['♠', '♥', '♦', '♣'];
 
@@ -50,6 +53,14 @@ export class MayorMenor {
       this.incorrectas++;
       this.mensaje = 'Incorrecto, terminó la partida';
       this.juegoTerminado = true;
+      this.authService.guardarResultadoMayorMenor({
+    
+        usuario: localStorage.getItem('usuario'),
+    correctas: this.puntos,
+    incorrectas: this.incorrectas,
+    cartas_jugadas: this.cartasJugadas,
+    fecha: new Date()
+    });
     }
   }
 
