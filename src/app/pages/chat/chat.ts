@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth';
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-chat',
@@ -19,7 +19,8 @@ export class Chat implements OnInit {
 
   constructor(
   private authService: AuthService,
-  private cd: ChangeDetectorRef
+  private cd: ChangeDetectorRef,
+  private zone: NgZone
   ) {
   this.cargarMensajes();
   }
@@ -33,15 +34,17 @@ ngOnInit() {
         schema: 'public',
         table: 'mensajes_chat'
       },
-      (payload) => {
-      console.log('Nuevo mensaje realtime:', payload);
-      this.cargarMensajes();
-      this.cd.detectChanges();
-      }
-    )
-    .subscribe();
-}
+    (payload) => {
 
+  this.zone.run(() => {
+
+    console.log('Nuevo mensaje realtime:', payload);
+
+    this.cargarMensajes();
+
+    this.cd.detectChanges();
+  });})
+    .subscribe();}
   async cargarMensajes() {
 
     const { data, error } =
