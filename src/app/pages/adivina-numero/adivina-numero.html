@@ -2,23 +2,47 @@
 
     <h1>Adivina el Numero</h1>
 
-    <p>{{ mensaje }}</p>
+    <div class="info">
 
-    <p>Intentos: {{ intentos }}</p>
+    <p
+        class="mensaje"
+        [ngClass]="{
+        'ganaste': mensaje === 'Ganaste'
+        }"
+    >
+        {{ mensaje }}
+    </p>
+
+    <p class="intentos">
+        Intentos: {{ intentos }}
+    </p>
+
+    </div>
 
     <input
     type="number"
     [(ngModel)]="numeroIngresado"
     min="1"
     max="20"
+    placeholder="Ingresa un numero"
     >
 
-    <button (click)="probarNumero()">
-    Probar
+    <div class="botones">
+
+    <button
+        class="probar"
+        (click)="probarNumero()"
+    >
+        Probar
     </button>
 
-    <button (click)="reiniciar()">
-    Reiniciar
+    <button
+        class="reiniciar"
+        (click)="reiniciar()"
+    >
+        Reiniciar
     </button>
+
+    </div>
 
 </div>
