@@ -13,23 +13,38 @@ export class AdivinaNumero {
   numeroSecreto = Math.floor(Math.random() * 20) + 1;
   numeroIngresado: number = 0;
   intentos = 0;
+  maxIntentos = 5;
   mensaje = 'Adivina un numero del 1 al 20';
   finalizado = false;
 
-  probarNumero() {
-    if (this.finalizado) return;
+probarNumero() {
 
-    this.intentos++;
+  if (this.finalizado) return;
 
-    if (this.numeroIngresado === this.numeroSecreto) {
-      this.mensaje = 'Ganaste';
-      this.finalizado = true;
-    } else if (this.numeroIngresado < this.numeroSecreto) {
-      this.mensaje = 'El numero secreto es mayor';
-    } else {
-      this.mensaje = 'El numero secreto es menor';
-    }
+  this.intentos++;
+
+  if (this.numeroIngresado === this.numeroSecreto) {
+
+    this.mensaje = 'Ganaste';
+    this.finalizado = true;
+
+  } else if (this.intentos >= this.maxIntentos) {
+
+    this.mensaje =
+      'Perdiste. El numero era ' + this.numeroSecreto;
+
+    this.finalizado = true;
+
+  } else if (this.numeroIngresado < this.numeroSecreto) {
+
+    this.mensaje = 'El numero secreto es mayor';
+
+  } else {
+
+    this.mensaje = 'El numero secreto es menor';
+
   }
+}
 
   reiniciar() {
     this.numeroSecreto = Math.floor(Math.random() * 20) + 1;
