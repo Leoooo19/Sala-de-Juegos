@@ -29,6 +29,14 @@
         {{ mensaje }}
     </h3>
 
+    <button
+    class="btn-siguiente"
+    *ngIf="respondido && !finalizado"
+    (click)="siguientePregunta()"
+>
+    Siguiente pregunta
+    
+    </button>
     <p class="puntaje">
         Puntaje: {{ puntaje }}
     </p>

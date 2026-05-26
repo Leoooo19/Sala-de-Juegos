@@ -75,3 +75,18 @@
     margin-top: 25px;
     font-weight: bold;
 }
+.btn-siguiente {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    background: #198754;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-siguiente:hover {
+    background: #157347;
+}

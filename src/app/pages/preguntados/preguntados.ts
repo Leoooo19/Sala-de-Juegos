@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './preguntados.css'
 })
 export class Preguntados {
-bloqueado = false;
+respondido = false;
 preguntas = [
   {
     pregunta: 'Que club argentino es conocido como El Millonario?',
@@ -76,12 +76,11 @@ preguntas = [
   finalizado = false;
   mensaje = '';
 
-
 responder(indiceOpcion: number) {
 
-  if (this.finalizado || this.bloqueado) return;
+  if (this.respondido) return;
 
-  this.bloqueado = true;
+  this.respondido = true;
 
   if (indiceOpcion === this.preguntas[this.indicePregunta].correcta) {
 
@@ -94,19 +93,13 @@ responder(indiceOpcion: number) {
 
   }
 
-  setTimeout(() => {
-
-    this.siguientePregunta();
-
-    this.bloqueado = false;
-
-  }, 1000);
-
 }
+
 
 siguientePregunta() {
 
   this.mensaje = '';
+  this.respondido = false;
 
   if (this.indicePregunta < this.preguntas.length - 1) {
 
@@ -116,17 +109,12 @@ siguientePregunta() {
 
     this.finalizado = true;
 
-  }
+  }}
 
-
-  this.mensaje = '';
-}
-
-  reiniciar() {
+reiniciar() {
     this.indicePregunta = 0;
     this.puntaje = 0;
     this.finalizado = false;
     this.mensaje = '';
-    this.bloqueado = false;  
-  }
-}
+    this.respondido = false;
+  }}
