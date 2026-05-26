@@ -63,7 +63,12 @@ guardarResultadoPreguntados(resultado: any) {
     .from('resultados_preguntados')
     .insert(resultado);
 }
-
+guardarResultadoAdivinaNumero(resultado: any) {
+  return this.supabaseService
+    .getClient()
+    .from('resultados_adivina_numero')
+    .insert(resultado);
+}
 obtenerMensajesChat() {
   return this.supabaseService
     .getClient()
