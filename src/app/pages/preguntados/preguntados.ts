@@ -72,9 +72,7 @@ responder(opcion: string) {
 
   this.bloqueado = true;
 
-  const respuestaCorrecta = this.preguntas[this.indicePregunta].correcta;
-
-  if (opcion === respuestaCorrecta) {
+  if (opcion === this.preguntas[this.indicePregunta].correcta) {
     this.puntaje += 10;
     this.mensaje = 'Correcto';
   } else {
@@ -87,15 +85,15 @@ responder(opcion: string) {
   }, 700);
 }
 
-  siguientePregunta() {
-    this.mensaje = '';
+siguientePregunta() {
+  this.mensaje = '';
 
-    if (this.indicePregunta < this.preguntas.length - 1) {
-      this.indicePregunta++;
-    } else {
-      this.finalizado = true;
-    }
+  if (this.indicePregunta < this.preguntas.length - 1) {
+    this.indicePregunta++;
+  } else {
+    this.finalizado = true;
   }
+}
 
   reiniciar() {
     this.indicePregunta = 0;

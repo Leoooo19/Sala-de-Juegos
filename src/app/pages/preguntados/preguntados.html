@@ -14,9 +14,9 @@
 
     <div class="opciones">
     <button
-        *ngFor="let opcion of preguntas[indicePregunta].opciones"
-        (click)="responder(opcion)"
-        [disabled]="bloqueado"
+    *ngFor="let opcion of preguntas[indicePregunta].opciones"
+    (click)="responder(opcion)"
+    [disabled]="bloqueado"
 >
     {{ opcion }}
 </button>
