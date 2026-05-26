@@ -67,6 +67,7 @@ preguntas = [
   finalizado = false;
   mensaje = '';
   bloqueado = false;
+
 responder(opcion: string) {
   if (this.finalizado || this.bloqueado) return;
 
@@ -86,8 +87,8 @@ responder(opcion: string) {
 }
 
 siguientePregunta() {
-  this.mensaje = '';
 
+  this.mensaje = '';
   if (this.indicePregunta < this.preguntas.length - 1) {
     this.indicePregunta++;
   } else {
@@ -100,5 +101,6 @@ siguientePregunta() {
     this.puntaje = 0;
     this.finalizado = false;
     this.mensaje = '';
+    this.bloqueado = false;  
   }
 }
