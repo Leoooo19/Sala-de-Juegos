@@ -1,0 +1,83 @@
+<div class="resultados-container">
+
+    <h1>Resultados</h1>
+
+    <section class="tabla-box">
+    <h2>Mayor o Menor</h2>
+
+    <table>
+        <tr>
+        <th>Usuario</th>
+        <th>Correctas</th>
+        <th>Incorrectas</th>
+        <th>Cartas</th>
+        </tr>
+
+      <tr *ngFor="let r of mayorMenor">
+        <td>{{ r.usuario }}</td>
+        <td>{{ r.correctas }}</td>
+        <td>{{ r.incorrectas }}</td>
+        <td>{{ r.cartas_jugadas }}</td>
+        </tr>
+    </table>
+    </section>
+
+    <section class="tabla-box">
+    <h2>Ahorcado</h2>
+
+    <table>
+        <tr>
+        <th>Usuario</th>
+        <th>Resultado</th>
+        <th>Intentos restantes</th>
+        <th>Letras usadas</th>
+        </tr>
+
+      <tr *ngFor="let r of ahorcado">
+        <td>{{ r.usuario }}</td>
+        <td>{{ r.gano ? 'Gano' : 'Perdio' }}</td>
+        <td>{{ r.intentos_restantes }}</td>
+        <td>{{ r.letras_usadas }}</td>
+        </tr>
+    </table>
+    </section>
+
+    <section class="tabla-box">
+    <h2>Preguntados</h2>
+
+    <table>
+        <tr>
+        <th>Usuario</th>
+        <th>Puntaje</th>
+        <th>Correctas</th>
+        </tr>
+
+      <tr *ngFor="let r of preguntados">
+        <td>{{ r.usuario }}</td>
+        <td>{{ r.puntaje }}</td>
+        <td>{{ r.correctas }}</td>
+        </tr>
+    </table>
+    </section>
+
+    <section class="tabla-box">
+    <h2>Adivina Numero</h2>
+
+    <table>
+        <tr>
+        <th>Usuario</th>
+        <th>Resultado</th>
+        <th>Intentos</th>
+        <th>Numero secreto</th>
+        </tr>
+
+      <tr *ngFor="let r of adivinaNumero">
+        <td>{{ r.usuario }}</td>
+        <td>{{ r.gano ? 'Gano' : 'Perdio' }}</td>
+        <td>{{ r.intentos }}</td>
+        <td>{{ r.numero_secreto }}</td>
+        </tr>
+    </table>
+    </section>
+
+</div>

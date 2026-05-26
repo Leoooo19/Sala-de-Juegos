@@ -41,6 +41,12 @@ export const routes: Routes = [
     component: AdivinaNumero
     },
     {
+    path: 'resultados',
+    loadComponent: () =>
+    import('./pages/resultados/resultados')
+        .then(m => m.Resultados)
+    },
+    {
     path: 'chat',
     component: Chat
     },

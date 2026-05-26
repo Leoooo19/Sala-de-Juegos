@@ -76,5 +76,35 @@ obtenerMensajesChat() {
     .select('*')
     .order('fecha', { ascending: true });
 }
+obtenerResultadosMayorMenor() {
+  return this.supabaseService
+    .getClient()
+    .from('resultados_mayor_menor')
+    .select('*')
+    .order('correctas', { ascending: false });
+}
 
+obtenerResultadosAhorcado() {
+  return this.supabaseService
+    .getClient()
+    .from('resultados_ahorcado')
+    .select('*')
+    .order('gano', { ascending: false });
+}
+
+obtenerResultadosPreguntados() {
+  return this.supabaseService
+    .getClient()
+    .from('resultados_preguntados')
+    .select('*')
+    .order('puntaje', { ascending: false });
+}
+
+obtenerResultadosAdivinaNumero() {
+  return this.supabaseService
+    .getClient()
+    .from('resultados_adivina_numero')
+    .select('*')
+    .order('gano', { ascending: false });
+}
 }
