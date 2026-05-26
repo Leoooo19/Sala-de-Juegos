@@ -12,14 +12,15 @@
         {{ preguntas[indicePregunta].pregunta }}
     </h2>
 
-    <div class="opciones">
-    <button>
+<div class="opciones">
+    <button
     *ngFor="let opcion of preguntas[indicePregunta].opciones; let i = index"
     (click)="responder(i)"
     [disabled]="bloqueado"
+    >
     {{ opcion }}
     </button>
-    </div>
+</div>
 
     <h3
         [class.correcto]="mensaje === 'Correcto'"
