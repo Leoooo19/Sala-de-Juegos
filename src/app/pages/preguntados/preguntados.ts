@@ -13,52 +13,61 @@ preguntas = [
   {
     pregunta: 'Que club argentino es conocido como El Millonario?',
     opciones: ['Boca Juniors', 'River Plate', 'Racing Club', 'Independiente'],
-    correcta: 'River Plate'
+    correcta: 1
   },
+
   {
     pregunta: 'Que clasico juegan Boca Juniors y River Plate?',
     opciones: ['Clasico de Avellaneda', 'Clasico Rosarino', 'Superclasico', 'Clasico Platense'],
-    correcta: 'Superclasico'
+    correcta: 2
   },
+
   {
     pregunta: 'Que club juega de local en el estadio Presidente Peron?',
     opciones: ['Racing Club', 'Independiente', 'San Lorenzo', 'Huracan'],
-    correcta: 'Racing Club'
+    correcta: 0
   },
+
   {
     pregunta: 'Que equipo es conocido como El Rojo?',
     opciones: ['Argentinos Juniors', 'Independiente', 'Estudiantes', 'Newells'],
-    correcta: 'Independiente'
+    correcta: 1
   },
+
   {
     pregunta: 'Que clasico juegan Newells y Rosario Central?',
     opciones: ['Clasico Rosarino', 'Clasico Santafesino', 'Clasico Cordobes', 'Clasico del Oeste'],
-    correcta: 'Clasico Rosarino'
+    correcta: 0
   },
+
   {
     pregunta: 'Que club argentino tiene como apodo El Ciclon?',
     opciones: ['Huracan', 'San Lorenzo', 'Velez', 'Lanus'],
-    correcta: 'San Lorenzo'
+    correcta: 1
   },
+
   {
     pregunta: 'Que club es conocido como El Pincha?',
     opciones: ['Gimnasia LP', 'Estudiantes LP', 'Colon', 'Union'],
-    correcta: 'Estudiantes LP'
+    correcta: 1
   },
+
   {
     pregunta: 'Que clasico juegan Racing e Independiente?',
     opciones: ['Clasico Porteno', 'Clasico de Avellaneda', 'Clasico del Sur', 'Clasico Nacional'],
-    correcta: 'Clasico de Avellaneda'
+    correcta: 1
   },
+
   {
     pregunta: 'Que club argentino es conocido como El Fortin?',
     opciones: ['Velez Sarsfield', 'Banfield', 'Tigre', 'Arsenal'],
-    correcta: 'Velez Sarsfield'
+    correcta: 0
   },
+
   {
     pregunta: 'Que equipo es conocido como El Globo?',
     opciones: ['San Lorenzo', 'Huracan', 'Platense', 'Chacarita'],
-    correcta: 'Huracan'
+    correcta: 1
   }
 ];
 
@@ -68,13 +77,12 @@ preguntas = [
   mensaje = '';
   bloqueado = false;
 
-responder(opcion: string) {
-
+responder(indiceOpcion: number) {
   if (this.finalizado || this.bloqueado) return;
 
   this.bloqueado = true;
 
-  if (opcion === this.preguntas[this.indicePregunta].correcta) {
+  if (indiceOpcion === this.preguntas[this.indicePregunta].correcta) {
     this.puntaje += 10;
     this.mensaje = 'Correcto';
   } else {

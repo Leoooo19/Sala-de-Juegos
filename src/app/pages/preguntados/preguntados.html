@@ -14,11 +14,12 @@
 
     <div class="opciones">
     <button
-    *ngFor="let opcion of preguntas[indicePregunta].opciones"
-    (click)="responder(opcion)"
+    *ngFor="let opcion of preguntas[indicePregunta].opciones; let i = index"
+    (click)="responder(i)"
+    [disabled]="bloqueado"
 >
     {{ opcion }}
-</button>
+    </button>
     </div>
 
     <h3
