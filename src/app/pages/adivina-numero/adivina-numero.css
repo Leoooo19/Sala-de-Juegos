@@ -1,0 +1,27 @@
+.contenedor {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #111;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 15px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}

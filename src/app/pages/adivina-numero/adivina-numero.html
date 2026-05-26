@@ -1,0 +1,24 @@
+<div class="contenedor">
+
+    <h1>Adivina el Numero</h1>
+
+    <p>{{ mensaje }}</p>
+
+    <p>Intentos: {{ intentos }}</p>
+
+    <input
+    type="number"
+    [(ngModel)]="numeroIngresado"
+    min="1"
+    max="20"
+    >
+
+    <button (click)="probarNumero()">
+    Probar
+    </button>
+
+    <button (click)="reiniciar()">
+    Reiniciar
+    </button>
+
+</div>
