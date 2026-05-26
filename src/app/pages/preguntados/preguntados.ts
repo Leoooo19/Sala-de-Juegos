@@ -69,9 +69,8 @@ preguntas = [
   bloqueado = false;
 
 responder(opcion: string) {
-  if (this.finalizado || this.bloqueado) return;
 
-  this.bloqueado = true;
+  if (this.finalizado) return;
 
   if (opcion === this.preguntas[this.indicePregunta].correcta) {
     this.puntaje += 10;
@@ -80,10 +79,7 @@ responder(opcion: string) {
     this.mensaje = 'Incorrecto';
   }
 
-  setTimeout(() => {
-    this.siguientePregunta();
-    this.bloqueado = false;
-  }, 700);
+  this.siguientePregunta();
 }
 
 siguientePregunta() {
