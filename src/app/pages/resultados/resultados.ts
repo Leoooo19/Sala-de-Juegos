@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../../services/auth';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-resultados',
@@ -15,7 +16,10 @@ export class Resultados implements OnInit {
   preguntados: any[] = [];
   adivinaNumero: any[] = [];
 
-  constructor(private authService: AuthService) {}
+constructor(
+  private authService: AuthService,
+  private cd: ChangeDetectorRef
+) {}
 
 async ngOnInit() {
 
@@ -54,5 +58,6 @@ async ngOnInit() {
   if (adivinaNumero.data) {
     this.adivinaNumero = adivinaNumero.data;
   }
+  this.cd.detectChanges();
 }
 }
