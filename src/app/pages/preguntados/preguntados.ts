@@ -66,21 +66,26 @@ preguntas = [
   puntaje = 0;
   finalizado = false;
   mensaje = '';
+  bloqueado = false;
+responder(opcion: string) {
+  if (this.finalizado || this.bloqueado) return;
 
-  responder(opcion: string) {
-    if (this.finalizado) return;
+  this.bloqueado = true;
 
-    if (opcion === this.preguntas[this.indicePregunta].correcta) {
-      this.puntaje += 10;
-      this.mensaje = 'Correcto';
-    } else {
-      this.mensaje = 'Incorrecto';
-    }
+  const respuestaCorrecta = this.preguntas[this.indicePregunta].correcta;
 
-    setTimeout(() => {
-      this.siguientePregunta();
-    }, 700);
+  if (opcion === respuestaCorrecta) {
+    this.puntaje += 10;
+    this.mensaje = 'Correcto';
+  } else {
+    this.mensaje = 'Incorrecto';
   }
+
+  setTimeout(() => {
+    this.siguientePregunta();
+    this.bloqueado = false;
+  }, 700);
+}
 
   siguientePregunta() {
     this.mensaje = '';
