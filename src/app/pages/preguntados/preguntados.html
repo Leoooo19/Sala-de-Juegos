@@ -2,12 +2,49 @@
 
     <h1>Preguntados</h1>
 
-    <div class="pregunta-card">
+  <div class="pregunta-card" *ngIf="!finalizado">
 
-    <h2>Próximamente...</h2>
+    <p class="progreso">
+        Pregunta {{ indicePregunta + 1 }} / {{ preguntas.length }}
+    </p>
 
-    <p>Juego de preguntas y respuestas</p>
+    <h2>
+        {{ preguntas[indicePregunta].pregunta }}
+    </h2>
+
+    <div class="opciones">
+        <button
+        *ngFor="let opcion of preguntas[indicePregunta].opciones"
+        (click)="responder(opcion)"
+        >
+        {{ opcion }}
+        </button>
+    </div>
+
+    <h3
+        [class.correcto]="mensaje === 'Correcto'"
+        [class.incorrecto]="mensaje === 'Incorrecto'"
+    >
+        {{ mensaje }}
+    </h3>
+
+    <p class="puntaje">
+        Puntaje: {{ puntaje }}
+    </p>
 
     </div>
 
+  <div class="pregunta-card" *ngIf="finalizado">
+
+    <h2>Juego finalizado</h2>
+
+    <p class="puntaje-final">
+        Puntaje final: {{ puntaje }}
+    </p>
+
+    <button class="btn-reiniciar" (click)="reiniciar()">
+        Jugar otra vez
+    </button>
+
+    </div>
 </div>
