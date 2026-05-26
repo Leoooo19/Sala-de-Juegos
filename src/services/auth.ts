@@ -97,7 +97,8 @@ obtenerResultadosPreguntados() {
     .getClient()
     .from('resultados_preguntados')
     .select('*')
-    .order('puntaje', { ascending: false });
+    .order('correctas', { ascending: false })
+    .limit(5);
 }
 
 obtenerResultadosAdivinaNumero() {
