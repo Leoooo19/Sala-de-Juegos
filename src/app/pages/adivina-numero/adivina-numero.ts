@@ -57,6 +57,8 @@ guardarResultado(gano: boolean) {
     numero_secreto: this.numeroSecreto,
     gano: gano,
     fecha: new Date()
+  }).then((respuesta: any) => {
+    console.log('ADIVINA NUMERO:', respuesta);
   });
 }
 
