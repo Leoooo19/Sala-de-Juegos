@@ -17,34 +17,42 @@ export class Resultados implements OnInit {
 
   constructor(private authService: AuthService) {}
 
-  async ngOnInit() {
+async ngOnInit() {
 
-    const mayorMenor =
-      await this.authService.obtenerResultadosMayorMenor();
+  const mayorMenor =
+    await this.authService.obtenerResultadosMayorMenor();
 
-    if (mayorMenor.data) {
-      this.mayorMenor = mayorMenor.data;
-    }
+  console.log('Mayor menor:', mayorMenor);
 
-    const ahorcado =
-      await this.authService.obtenerResultadosAhorcado();
-
-    if (ahorcado.data) {
-      this.ahorcado = ahorcado.data;
-    }
-
-    const preguntados =
-      await this.authService.obtenerResultadosPreguntados();
-
-    if (preguntados.data) {
-      this.preguntados = preguntados.data;
-    }
-
-    const adivinaNumero =
-      await this.authService.obtenerResultadosAdivinaNumero();
-
-    if (adivinaNumero.data) {
-      this.adivinaNumero = adivinaNumero.data;
-    }
+  if (mayorMenor.data) {
+    this.mayorMenor = mayorMenor.data;
   }
+
+  const ahorcado =
+    await this.authService.obtenerResultadosAhorcado();
+
+  console.log('Ahorcado:', ahorcado);
+
+  if (ahorcado.data) {
+    this.ahorcado = ahorcado.data;
+  }
+
+  const preguntados =
+    await this.authService.obtenerResultadosPreguntados();
+
+  console.log('Preguntados:', preguntados);
+
+  if (preguntados.data) {
+    this.preguntados = preguntados.data;
+  }
+
+  const adivinaNumero =
+    await this.authService.obtenerResultadosAdivinaNumero();
+
+  console.log('Adivina numero:', adivinaNumero);
+
+  if (adivinaNumero.data) {
+    this.adivinaNumero = adivinaNumero.data;
+  }
+}
 }
