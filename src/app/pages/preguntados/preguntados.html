@@ -16,7 +16,6 @@
     <button
     *ngFor="let opcion of preguntas[indicePregunta].opciones; let i = index"
     (click)="responder(i)"
-    [disabled]="bloqueado"
     >
     {{ opcion }}
     </button>
@@ -35,7 +34,7 @@
     (click)="siguientePregunta()"
 >
     Siguiente pregunta
-    
+
     </button>
     <p class="puntaje">
         Puntaje: {{ puntaje }}

@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Preguntados {
 respondido = false;
+bloqueado = false;
 preguntas = [
   {
     pregunta: 'Que club argentino es conocido como El Millonario?',
@@ -94,8 +95,6 @@ responder(indiceOpcion: number) {
   }
 
 }
-
-
 siguientePregunta() {
 
   this.mensaje = '';
