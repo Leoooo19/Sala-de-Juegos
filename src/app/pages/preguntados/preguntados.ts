@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { AuthService } from '../../../services/auth';
 @Component({
   selector: 'app-preguntados',
   imports: [CommonModule],
@@ -8,7 +8,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './preguntados.css'
 })
 export class Preguntados {
-respondido = false;
+constructor(private authService: AuthService) {}
+  respondido = false;
 bloqueado = false;
 preguntas = [
   {
@@ -104,11 +105,30 @@ siguientePregunta() {
 
     this.indicePregunta++;
 
-  } else {
+  } 
+  else {
 
-    this.finalizado = true;
+  this.finalizado = true;
 
-  }}
+  this.authService.guardarResultadoPreguntados({
+
+  id: crypto.randomUUID(),
+
+  usuario: JSON.parse(localStorage.getItem('usuario') || '{}').email,
+
+  puntaje: this.puntaje,
+
+  correctas: this.puntaje / 10,
+
+  fecha: new Date()
+
+  }).then((respuesta: any) => {
+
+  console.log('PREGUNTADOS:', respuesta);
+
+  });
+}
+}
 
 reiniciar() {
     this.indicePregunta = 0;

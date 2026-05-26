@@ -57,6 +57,12 @@ guardarMensajeChat(mensaje: any) {
     .from('mensajes_chat')
     .insert(mensaje);
 }
+guardarResultadoPreguntados(resultado: any) {
+  return this.supabaseService
+    .getClient()
+    .from('resultados_preguntados')
+    .insert(resultado);
+}
 
 obtenerMensajesChat() {
   return this.supabaseService
