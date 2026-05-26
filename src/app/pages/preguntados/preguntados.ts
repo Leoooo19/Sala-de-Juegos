@@ -70,7 +70,9 @@ preguntas = [
 
 responder(opcion: string) {
 
-  if (this.finalizado) return;
+  if (this.finalizado || this.bloqueado) return;
+
+  this.bloqueado = true;
 
   if (opcion === this.preguntas[this.indicePregunta].correcta) {
     this.puntaje += 10;
@@ -79,17 +81,20 @@ responder(opcion: string) {
     this.mensaje = 'Incorrecto';
   }
 
-  this.siguientePregunta();
+  setTimeout(() => {
+    this.siguientePregunta();
+    this.bloqueado = false;
+  }, 1000);
 }
 
 siguientePregunta() {
-
-  this.mensaje = '';
   if (this.indicePregunta < this.preguntas.length - 1) {
     this.indicePregunta++;
   } else {
     this.finalizado = true;
   }
+
+  this.mensaje = '';
 }
 
   reiniciar() {
