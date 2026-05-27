@@ -18,15 +18,13 @@
         [(ngModel)]="password"
         >
 
-        <button
-        type="button"
-        class="btn btn-primary"
+        <span
+        class="toggle-password"
         (click)="mostrarPassword = !mostrarPassword"
         >
         {{ mostrarPassword ? 'Ocultar' : 'Mostrar' }}
-        </button>
-
-</div>
+        </span>
+        </div>
     </div>
 
     <button class="btn btn-dark w-100" (click)="ingresar()">

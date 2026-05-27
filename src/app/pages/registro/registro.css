@@ -1,0 +1,22 @@
+.password-container {
+    position: relative;
+}
+
+.password-container input {
+    padding-right: 70px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: gray;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-password:hover {
+    color: #2563eb;
+}   
