@@ -14,6 +14,7 @@ export class Login {
   email: string = '';
   password: string = '';
   mensaje: string = '';
+  mostrarPassword = false;
 
   constructor(
     private authService: AuthService,

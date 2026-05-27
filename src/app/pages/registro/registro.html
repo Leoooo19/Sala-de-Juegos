@@ -25,7 +25,22 @@
 
     <div class="mb-3">
         <label>Contraseña</label>
-        <input type="password" class="form-control" [(ngModel)]="password">
+        <div class="password-container">
+
+        <input
+        [type]="mostrarPassword ? 'text' : 'password'"
+        class="form-control"
+        [(ngModel)]="password"
+        >
+
+        <button
+        type="button"
+        class="btn btn-primary"
+        (click)="mostrarPassword = !mostrarPassword"
+        >
+        {{ mostrarPassword ?  '👁️' }}
+        </button>
+        </div>
     </div>
 
     <button class="btn btn-dark w-100" (click)="registrar()">

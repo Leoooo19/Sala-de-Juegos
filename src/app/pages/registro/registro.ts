@@ -17,6 +17,7 @@ export class Registro {
   email: string = '';
   password: string = '';
   mensaje: string = '';
+  mostrarPassword = false;
 
   constructor(
     private authService: AuthService,
